@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Girl Shop</title>
+    <link rel="icon" type="image/png" href="icono.png"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="file:///C:/Users/esofe/Documents/inge/urban.html" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+
+<body>
+    <body>
+
+        <!-- Loader -->
+        <div id="loader">
+          <img src="logoinicio.png" alt="Cargando...">
+        </div>
+      
+        <!-- Todo tu contenido actual debe ir dentro de este contenedor -->
+        <div id="main">
+          <!-- Pega aquí tu header, secciones, footer, etc -->
+        </div>
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            const navContainer = document.querySelector('.header-nav-container');
+            // Esto agrega o quita la clase 'is-open' que el CSS usa para mostrar/ocultar el menú.
+            navContainer.classList.toggle('is-open'); 
+            
+            // Cambia el ícono entre ☰ y ✕ (opcional pero recomendable)
+            this.textContent = navContainer.classList.contains('is-open') ? '✕' : '☰';
+        });
+    </script>
+    <header class="main-header">
+        <div class="logo">
+    <a href="urban.html"> 
+        <img src="logo5.png" alt="Urban Girl Shop Logo" class="header-logo">
+    </a>
+</div>
+        
+        <nav class="main-nav">
+            <a href="#novedades">Novedades</a>
+            <a href="#vestidos">Vestidos</a>
+            <a href="#accesorios">Accesorios</a>
+            <a href="#ofertas">Ofertas</a>
+        </nav>
+        
+        <div class="header-actions">
+            <form class="search-form" onsubmit="return false;"> 
+                <input type="search" placeholder="Buscar..." aria-label="Buscar productos">
+                <button type="submit">🔍</button>
+           <div class="header-actions">
+            <a href="carrito.html" class="cart-button">
+                🛍️ Carrito (0)
+            </a>
+        </div>
+        <div class="header-actions">
+            <a href="cuentas.html" class="account-link">
+                👤 Cuenta
+            </a>
+       <div class="header-actions">
+            <a href="historial.html" class="account-link">
+                📰historial 
+            </a>
+    </header>
+
+    <section class="hero-banner">
+        <h2>Tu Estilo, Tu Actitud. Moda para Jóvenes y Adultas.</h2>
+        <p>Descubre las tendencias más *chic* con nuestra paleta pastel.</p>
+        <a href="#novedades" class="cta-button">Descubre las Novedades</a>
+    </section>
+
+    <main class="store-content">
+
+        <section class="category-section" id="novedades">
+            <h2>Novedades *Trending* de la Temporada</h2>
+            <div class="product-grid">
+                <article class="product-card">
+                    <img src="blusa.jpg" alt="Blusa en Rosa ">
+                    <h4>Blusa de Gasa Rosa </h4>
+                    <p class="price">$25.000 CLP</p>
+                    <button class="add-to-cart">Añadir al Carrito</button>
+                </article>
+                <article class="product-card">
+                    <img src="falda.jpg" alt="Falda Plisada Menta">
+                    <h4>Falda Plisada Menta</h4>
+                    <p class="price">$32.990 CLP</p>
+                    <button class="add-to-cart">Añadir al Carrito</button>
+                </article>
+            </div>
+        </section>
+
+        <section class="category-section" id="vestidos">
+            <h2>Vestidos: Perfectos para el Día y la Noche</h2>
+            <div class="product-grid">
+                <article class="product-card">
+                    <img src="vestido.jpg" alt="Vestido Verano">
+                    <h4>Vestido de Lino Liviano</h4>
+                    <p class="price">$45.000 CLP</p>
+                    <button class="add-to-cart">Añadir al Carrito</button>
+                </article>
+            </div>
+        </section>
+
+        <section class="category-section" id="accesorios">
+            <h2>Accesorios para un *Look* 100% Urbano</h2>
+            <div class="product-grid">
+                <article class="product-card">
+                    <img src="img/placeholder-4.jpg" alt="Mini Bolso">
+                    <h4>Mini Bolso Cruzado</h4>
+                    <p class="price">$18.500 CLP</p>
+                    <button class="add-to-cart">Añadir al Carrito</button>
+                </article>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2025 **Urban Girl Shop**. Moda Femenina Joven y Contemporánea.</p>
+        <div class="footer-links">
+            <a href="#">Contacto</a> |
+            <a href="#">Información de Pago y Boletas</a> |
+            <a href="#">Política de Devolución</a>
+        </div>
+    </footer>
+    <footer>
+    </footer>
+
+<script>
+    // 2. CÓDIGO JAVASCRIPT (Ver sección siguiente)
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.querySelector('.search-form input[type="search"]');
+        const productCards = document.querySelectorAll('.product-card');
+
+        searchInput.addEventListener('keyup', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+
+            productCards.forEach(card => {
+                const title = card.querySelector('h4').textContent.toLowerCase();
+                
+                // Si el título del producto incluye el término de búsqueda, lo muestra.
+                if (title.includes(searchTerm)) {
+                    card.style.display = 'block'; // Muestra el producto
+                } else {
+                    card.style.display = 'none'; // Oculta el producto
+                }
+            });
+        });
+    });
+</script>
+<script>
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    const main = document.getElementById("main");
+
+    // Esperar 2 segundos antes de ocultar el loader
+    setTimeout(() => {
+      loader.style.opacity = "0";
+      loader.style.visibility = "hidden";
+      main.classList.add("show");
+    }, 3000); // <-- aquí ajustas los milisegundos (2000 = 2 segundos)
+  });
+</script>
+<script src="cart.js"></script> 
+</body>
+</html>

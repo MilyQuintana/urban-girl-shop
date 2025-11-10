@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil | Urban Girl Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <h1>Urban Girl Shop</h1>
+        </div>
+        <nav class="main-nav">
+            <a href="urban.html">Inicio</a>
+            <a href="#novedades">Novedades</a>
+            <a href="carrito.html">🛍️ Carrito</a>
+            <a href="boleta.html" class="btn-details">Ver Boleta</a>
+        </nav>
+        <div class="header-actions">
+            <span class="welcome-user">Hola, [Nombre del Usuario]</span> 
+        </div>
+    </header>
+
+    <main class="account-page-content">
+        
+        <div class="profile-container">
+            <h2>👤 Mi Perfil en Urban Girl Shop</h2>
+
+            <div class="profile-tabs">
+                <a href="#tab-personal" class="profile-tab-link active">Datos Personales</a>
+                <a href="#tab-historial" class="profile-tab-link">Historial de Compras</a>
+                <a href="#tab-direcciones" class="profile-tab-link">Mis Direcciones</a>
+            </div>
+
+            <div class="profile-content-wrapper">
+
+                <section id="tab-personal" class="profile-tab-content active">
+                    <h3>Actualiza tu Información</h3>
+                    <form class="account-form">
+                        <div class="input-group">
+                            <label for="profile-name">Nombre Completo</label>
+                            <input type="text" id="profile-name" value="Catalina Pérez" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="profile-email">Correo Electrónico</label>
+                            <input type="email" id="profile-email" value="catalina.p@email.com" required>
+                        </div>
+                        <button type="submit" class="auth-btn btn-login" style="width: auto; padding: 10px 30px;">Guardar Cambios</button>
+                    </form>
+                </section>
+
+                <section id="tab-historial" class="profile-tab-content">
+                    
+                    <div class="mis-compras-separada-inner">
+                        <div class="compra-item">
+                            <h3>Pedido #UG2025-456</h3>
+                            <p><strong>Fecha:</strong> 2 de Noviembre, 2025</p>
+                            <p><strong>Total:</strong> $119.98 USD</p>
+                            <p><strong>Estado:</strong> <span class="status-confirmed">✅ Confirmado, Preparando Envío</span></p>
+                            <a href="#" class="btn-details">Ver Boleta</a>
+                        </div>
+                        <div class="compra-item">
+                            <h3>Pedido #UG2025-123</h3>
+                            <p><strong>Fecha:</strong> 25 de Octubre, 2025</p>
+                            <p><strong>Total:</strong> $55.00 USD</p>
+                            <p><strong>Estado:</strong> <span style="color: var(--color-acento-rosa); font-weight: 600;">📦 Entregado</span></p>
+                            <a href="#" class="btn-details">Ver Boleta</a>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="tab-direcciones" class="profile-tab-content">
+                    <h3>Mis Direcciones</h3>
+                    
+                    <div class="address-card">
+                        <h4>Dirección Principal</h4>
+                        <p>Catalina Pérez</p>
+                        <p>Av. Siempre Viva 742, Santiago</p>
+                        <p>Código Postal 8320000</p>
+                        <button class="edit-btn">Editar</button>
+                    </div>
+                    
+                    <button class="add-address-btn">+ Agregar Nueva Dirección</button>
+                </section>
+
+            </div>
+        </div>
+
+    </main>

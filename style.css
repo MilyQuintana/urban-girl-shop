@@ -1,0 +1,791 @@
+/* VARIABLES DE COLOR PASTELES */
+:root {
+    --color-fondo: #F7F2F8; /* Fondo principal (Malva Muy Claro) */
+    --color-acento-rosa: #eb9df6; /* Rosa Bebé (Principal) */
+    --color-acento-menta: #BDECB6; /* Menta Suave (Secundario/Botones) */
+    --color-texto: #4A4A4A; /* Gris Oscuro para legibilidad */
+    --color-blanco: #ffffff;
+    --color-gris-claro: #EEEEEE;
+}
+
+/* ESTILOS GLOBALES */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-texto);
+}
+
+/* 1. ENCABEZADO Y BARRA DE NAVEGACIÓN */
+.main-header {
+    background-color: var(--color-blanco);
+    padding: 10px 5%;
+    display: flex;
+    /* Distribuye logo, nav y acciones */
+    justify-content: space-between; 
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Se asegura que la barra ocupe todo el ancho */
+    width: 90%; 
+}
+/* ========================================================= */
+/* --- MEDIA QUERY: DISEÑO RESPONSIVO (MÓVILES Y TABLETS) --- */
+/* ========================================================= */
+
+@media (max-width: 800px) {
+    
+    /* 1. NAVEGACIÓN (HEADER): Cambiar de línea a menú de hamburguesa */
+    
+    .menu-toggle {
+        display: block; /* Muestra el botón ☰ */
+    }
+
+    .header-nav-container {
+        display: none; /* OCULTA el menú principal por defecto */
+        /* ... Estilos de posicionamiento del menú desplegable ... */
+    }
+    
+    .header-nav-container.is-open {
+        display: flex; /* MUESTRA el menú cuando se hace clic */
+        flex-direction: column;
+    }
+    
+    /* 2. CONTENIDO PRINCIPAL: Apilar en una sola columna */
+    
+    /* Aplica a Checkout, Producto y Contacto */
+    .checkout-grid, 
+    .product-detail-grid, 
+    .contact-grid {
+        grid-template-columns: 1fr; /* Una sola columna */
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    /* 3. PERFIL: Pestañas en columna */
+    
+    .profile-tabs {
+        flex-direction: column;
+    }
+    
+    /* 4. TIPOGRAFÍA Y RELLENOS: Ajustes finos */
+    
+    .main-header, .account-page-content, .contact-page-content {
+        padding: 10px 3%; /* Reduce el relleno lateral para aprovechar el espacio */
+    }
+    
+    .product-title {
+        font-size: 2.2em; /* Hace que los títulos sean más pequeños */
+    }
+    
+    /* ... y el resto de ajustes de apilamiento vertical ... */
+}
+/* --- ESTILOS PARA EL LOGO (en styles.css) --- */
+
+.header-logo {
+    /* Define un tamaño máximo para que la imagen quepa bien en el header */
+    max-height: 120px; /* Puedes ajustar este valor si tu barra es más alta o más baja */
+    width: auto;     /* Mantiene la proporción de la imagen */
+    display: block;  /* Asegura que no haya espacio extra debajo de la imagen */
+}
+
+/* Si quieres que el contenedor del logo no tenga márgenes innecesarios: */
+.main-header .logo h1, .main-header .logo a {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos de la barra del menú */
+.main-nav {
+    display: flex;
+    gap: 25px; /* Espacio entre los enlaces */
+}
+
+.main-nav a {
+    font-weight: 600;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s, color 0.3s;
+}
+
+.main-nav a:hover {
+    color: var(--color-acento-rosa);
+    border-bottom: 2px solid var(--color-acento-rosa);
+}
+
+/* Acciones (Búsqueda y Carrito) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Búsqueda */
+.search-form {
+    display: flex;
+}
+.search-form input[type="search"] {
+    padding: 8px;
+    border: 1px solid var(--color-gris-claro);
+    border-radius: 5px 0 0 5px;
+    width: 150px;
+}
+
+.search-form button {
+    padding: 8px 12px;
+    background-color: var(--color-acento-menta);
+    color: var(--color-texto);
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.cart-button {
+    font-weight: 600;
+    padding: 8px 10px;
+    background-color: var(--color-acento-rosa);
+    color: var(--color-blanco);
+    border-radius: 5px;
+}
+
+/* 2. BANNER PRINCIPAL */
+.hero-banner {
+    background-color: var(--color-acento-rosa);
+    color: var(--color-blanco);
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 40px;
+}
+
+.hero-banner h2 {
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-acento-menta);
+    color: var(--color-texto);
+    padding: 12px 25px;
+    border-radius: 30px;
+    margin-top: 20px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+/* 3. CONTENIDO PRINCIPAL Y SECCIONES ORDENADAS */
+.store-content {
+    padding: 0 5%;
+}
+
+.category-section {
+    margin-bottom: 50px;
+    padding: 30px 0;
+    /* Línea divisoria suave entre secciones */
+    border-top: 1px solid var(--color-gris-claro); 
+}
+
+.category-section h2 {
+    font-size: 2em;
+    color: var(--color-acento-rosa);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.product-grid {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap; 
+    justify-content: center; /* Centra las tarjetas si no llenan la línea */
+}
+
+.product-card {
+    background-color: var(--color-blanco);
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    width: 250px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px; /* Tamaño fijo para el placeholder */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #fcecf0; /* Fondo pastel para el placeholder */
+}
+
+.product-card h4 {
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+.product-card .price {
+    font-weight: 700;
+    color: var(--color-acento-rosa);
+    font-size: 1.2em;
+    margin: 10px 0 15px;
+}
+
+.add-to-cart {
+    background-color: var(--color-acento-menta);
+    color: var(--color-texto);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: #92d989; /* Menta un poco más oscura */
+}
+
+/* 4. FOOTER */
+footer {
+    background-color: var(--color-texto);
+    color: var(--color-blanco);
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+}
+
+footer a {
+    color: var(--color-acento-menta);
+    margin: 0 10px;
+    font-weight: 400;
+}
+
+/* --- ESTILOS REFINADOS PARA LA PÁGINA DEL CARRITO (carrito.html) --- */
+
+.cart-page-content {
+    padding: 40px 5%;
+}
+
+.cart-page-content h2 {
+    text-align: center;
+    font-size: 2.4em;
+    font-weight: 700;
+    color: var(--color-acento-rosa); /* Título más destacado en rosa pastel */
+    margin-bottom: 40px;
+}
+
+/* Distribución principal (Flexbox) */
+.cart-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start; /* Asegura que el resumen quede arriba */
+}
+
+/* A. LISTA DE PRODUCTOS (Tabla con diseño limpio) */
+.cart-items {
+    flex: 3; /* Ocupa la mayor parte del espacio */
+}
+
+.cart-items table {
+    width: 100%;
+    border-collapse: separate; /* Permite bordes más limpios */
+    border-spacing: 0 10px; /* Espacio vertical entre filas */
+    background-color: transparent; /* Fondo transparente */
+}
+
+.cart-items thead {
+    border-bottom: 2px solid var(--color-acento-menta); /* Separador pastel */
+}
+
+.cart-items th {
+    padding: 15px 10px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-texto);
+    text-transform: uppercase;
+    font-size: 0.9em;
+    background-color: var(--color-fondo); /* Fondo muy claro para encabezado */
+}
+
+.cart-items tbody tr {
+    background-color: var(--color-blanco);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra suave para separar filas */
+    transition: box-shadow 0.3s;
+}
+
+.cart-items tbody tr:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-items td {
+    padding: 15px 10px;
+    border: none; /* Quitamos los bordes internos de la tabla */
+    vertical-align: middle;
+}
+
+/* Columna de información del producto (Estilo de Tarjeta) */
+.item-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 600;
+}
+
+.cart-item-img {
+    width: 80px; /* Imagen un poco más grande */
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid var(--color-acento-rosa); /* Borde rosa suave */
+    background-color: #fcecf0; 
+}
+
+.item-info h4 {
+    margin: 0;
+    font-size: 1em;
+}
+
+.item-info small {
+    display: block;
+    font-weight: 400;
+    color: #888;
+    font-size: 0.9em;
+}
+
+.qty-input {
+    width: 60px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid var(--color-gris-claro);
+    border-radius: 4px;
+}
+
+.remove-btn {
+    background: var(--color-acento-rosa); /* Botón de eliminar con fondo rosa */
+    color: var(--color-blanco);
+    border: none;
+    padding: 8px;
+    border-radius: 50%; /* Circular */
+    cursor: pointer;
+    font-size: 0.8em;
+    line-height: 1;
+    transition: background-color 0.3s;
+}
+
+.remove-btn:hover {
+    background-color: #ffb8c7;
+}
+
+/* Botones inferiores del carrito */
+.cart-actions-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 15px 0;
+}
+
+.continue-shopping-btn, .update-cart-btn {
+    padding: 12px 25px;
+    border-radius: 30px; /* Botones tipo píldora */
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+}
+
+.continue-shopping-btn {
+    background-color: var(--color-gris-claro);
+    color: var(--color-texto);
+}
+.continue-shopping-btn:hover {
+    background-color: #ccc;
+}
+
+.update-cart-btn {
+    background-color: var(--color-acento-menta);
+    color: var(--color-texto);
+}
+.update-cart-btn:hover {
+    background-color: #92d989;
+    box-shadow: 0 4px 6px rgba(189, 236, 182, 0.5);
+}
+
+
+/* B. RESUMEN DEL PEDIDO (Mismo estilo limpio) */
+.cart-summary {
+    flex: 1; 
+    background-color: var(--color-blanco);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra un poco más marcada */
+}
+
+.cart-summary h3 {
+    border-bottom: 2px solid var(--color-acento-menta); /* Separador Menta */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: var(--color-texto);
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.summary-line span:last-child {
+    font-weight: 600;
+    color: var(--color-texto);
+}
+.summary-total h4 {
+    color: var(--color-acento-rosa); /* Título de Total en rosa */
+}
+
+.summary-total span {
+    color: var(--color-acento-rosa);
+}
+
+.checkout-btn {
+    /* Botón de checkout más prominente */
+    background-color: var(--color-acento-rosa);
+    padding: 18px 15px;
+    font-size: 1.2em;
+}
+
+.checkout-btn:hover {
+    background-color: #ffb8c7; 
+}
+/* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA DE CUENTA (cuenta.html) --- */
+
+.account-page-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    min-height: 80vh; /* Asegura que ocupe casi toda la altura visible */
+    background-color: var(--color-fondo);
+}
+
+.form-container {
+    width: 100%;
+    max-width: 450px;
+    background-color: var(--color-blanco);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-container h2 {
+    color: var(--color-acento-rosa);
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+/* PESTAÑAS (LOGIN / REGISTRO) */
+.form-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--color-gris-claro);
+}
+
+.tab-link {
+    padding: 10px 20px;
+    font-weight: 600;
+    color: #999;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+    margin: 0 5px;
+}
+
+.tab-link.active {
+    color: var(--color-acento-rosa);
+    border-bottom: 3px solid var(--color-acento-rosa);
+}
+
+/* FORMULARIOS */
+.account-form {
+    text-align: left;
+    display: none; /* Oculto por defecto para alternar con JS/CSS */
+}
+
+.account-form.active {
+    display: block; /* Se muestra el formulario activo */
+}
+
+.account-form p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--color-texto);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-gris-claro);
+    border-radius: 5px;
+    box-sizing: border-box; /* Fundamental para que el padding no desborde */
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--color-acento-menta);
+    outline: none;
+}
+
+/* BOTONES DE AUTENTICACIÓN */
+.auth-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-login {
+    background-color: var(--color-acento-menta);
+    color: var(--color-texto);
+}
+.btn-login:hover {
+    background-color: #92d989;
+}
+
+.btn-register {
+    background-color: var(--color-acento-rosa);
+    color: var(--color-blanco);
+}
+.btn-register:hover {
+    background-color: #ffb8c7;
+}
+
+.forgot-password {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: var(--color-acento-rosa);
+}
+/* Estilo para el enlace de "Cuenta" */
+.account-link {
+    padding: 8px 10px;
+    font-weight: 600;
+    color: var(--color-texto);
+    transition: color 0.3s;
+}
+.account-link:hover {
+    color: var(--color-acento-menta);
+}
+/* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA DE CHECKOUT (checkout.html) --- */
+
+.checkout-header {
+    justify-content: center; /* Centrar el logo */
+    padding: 10px 5%;
+    border-bottom: 5px solid var(--color-acento-menta); /* Borde seguro */
+}
+.checkout-header .main-nav {
+    display: block;
+}
+.checkout-header .main-nav a {
+    font-weight: 400;
+    color: #888;
+}
+
+.checkout-page-content {
+    padding: 40px 5%;
+    background-color: var(--color-fondo);
+}
+
+.checkout-page-content h2 {
+    text-align: center;
+    font-size: 2.2em;
+    color: var(--color-acento-rosa);
+    margin-bottom: 40px;
+}
+
+.checkout-grid {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* A. COLUMNA DE FORMULARIOS */
+.checkout-forms {
+    flex: 2; /* Ocupa 2/3 del espacio */
+}
+
+.checkout-step {
+    background-color: var(--color-blanco);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.checkout-step h3 {
+    color: var(--color-acento-menta);
+    border-bottom: 1px solid var(--color-gris-claro);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Estilos de los inputs (reutilizando .input-group de cuenta.html) */
+.shipping-form, .card-form {
+    padding-top: 10px;
+}
+
+.input-group-row {
+    display: flex;
+    gap: 20px;
+}
+.input-group-row .input-group {
+    flex: 1;
+}
+
+/* Opciones de pago (Radio buttons) */
+.payment-options {
+    margin-bottom: 20px;
+}
+.payment-radio {
+    display: block;
+    background-color: var(--color-fondo);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.payment-radio input {
+    margin-right: 10px;
+    accent-color: var(--color-acento-rosa); /* Cambia el color del radio button */
+}
+
+/* B. RESUMEN DEL PEDIDO FINAL */
+.checkout-summary {
+    flex: 1; /* Ocupa 1/3 del espacio */
+    background-color: var(--color-blanco);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    position: sticky; /* Se mantiene visible al hacer scroll */
+    top: 20px;
+}
+
+.checkout-summary h3 {
+    font-size: 1.5em;
+    color: var(--color-acento-rosa);
+    border-bottom: 2px solid var(--color-acento-menta);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.item-preview {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    color: #666;
+}
+
+.summary-line.subtotal, .summary-line.shipping-cost {
+    padding-top: 10px;
+    border-top: 1px solid var(--color-gris-claro);
+    margin-top: 10px;
+}
+
+.summary-total.final-total {
+    border-top: 2px solid var(--color-acento-rosa);
+    padding-top: 15px;
+    margin-top: 20px;
+}
+
+/* Botón de Pagar */
+.place-order-btn {
+    width: 100%;
+    background-color: var(--color-acento-rosa);
+    color: var(--color-blanco);
+    border: none;
+    padding: 18px;
+    border-radius: 30px;
+    margin-top: 25px;
+    font-size: 1.3em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.place-order-btn:hover {
+    background-color: #ffb8c7;
+}
+
+.security-note {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: var(--color-acento-menta);
+}
+
+
+  #loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+
+  #loader img {
+    width: 200px;
+    animation: fadeIn 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0.5; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1.05); }
+  }
+
+  #main {
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+
+  #main.show {
+    opacity: 1;
+  }

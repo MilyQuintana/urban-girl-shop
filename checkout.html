@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Finalizar Compra | Urban Girl Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header checkout-header">
+        <div class="logo">
+            <h1>Urban Girl Shop</h1>
+        </div>
+        <nav>
+            <a href="urban.html">← Volver a la tienda</a>
+        </nav>
+    </header>
+
+    <main class="checkout-page-content">
+        
+        <h2>Proceso de Pago Seguro</h2>
+        
+        <div class="checkout-grid">
+            
+            <section class="checkout-forms">
+                
+                <div class="checkout-step">
+                    <h3>1. Dirección de Envío</h3>
+                    
+                    <form class="shipping-form">
+                        <div class="input-group">
+                            <label for="full-name">Nombre Completo</label>
+                            <input type="text" id="full-name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="address">Dirección</label>
+                            <input type="text" id="address" required placeholder="Calle y número">
+                        </div>
+                        <div class="input-group-row">
+                            <div class="input-group">
+                                <label for="city">Ciudad</label>
+                                <input type="text" id="city" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="postal-code">Código Postal</label>
+                                <input type="text" id="postal-code" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="phone">Teléfono de Contacto</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="checkout-step">
+                    <h3>2. Método de Pago</h3>
+                    <div class="payment-options">
+                        <label class="payment-radio">
+                            <input type="radio" name="payment-method" value="card" checked>
+                            Tarjeta de Crédito/Débito
+                        </label>
+                        <label class="payment-radio">
+                            <input type="radio" name="payment-method" value="transfer">
+                            Transferencia Bancaria (Manual)
+                        </label>
+                        </div>
+                    
+                    <form class="card-form">
+                        <div class="input-group">
+                            <label for="card-number">Número de Tarjeta</label>
+                            <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="card-holder">Nombre del Titular</label>
+                            <input type="text" id="card-holder" required>
+                        </div>
+                        <div class="input-group-row">
+                            <div class="input-group">
+                                <label for="expiry-date">Vencimiento</label>
+                                <input type="text" id="expiry-date" placeholder="MM/AA" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="123" required>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </section>
+            
+            <aside class="checkout-summary">
+                <h3>Resumen de tu Pedido</h3>
+                
+                <div class="item-preview">
+                    <span>Blusa Rosa (x1)</span>
+                    <span>$25.000 CLP</span>
+                </div>
+                <div class="item-preview">
+                    <span>Falda Menta (x1)</span>
+                    <span>$32.990 CLP</span>
+                </div>
+
+                <div class="summary-line subtotal">
+                    <span>Subtotal Productos:</span>
+                    <span>$57.990 CLP</span>
+                </div>
+                <div class="summary-line shipping-cost">
+                    <span>Costo de Envío:</span>
+                    <span>$5.000 CLP</span>
+                </div>
+                
+                <div class="summary-total final-total">
+                    <h4>Total a Pagar:</h4>
+                    <span>$62.990 CLP</span>
+                </div>
+                
+                <button type="submit" class="place-order-btn">PAGAR AHORA</button>
+                
+                <div class="security-note">
+                    🔒 Transacción segura y cifrada.
+                </div>
+            </aside>
+            
+        </div>
+        
+    </main>
+
+    <footer>
+        <p>Urban Girl Shop | Compra segura.</p>
+    </footer>
+
+</body>
+</html>
