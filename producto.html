@@ -7,31 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style2.css">
 </head>
-<body>   
-    <div class="product-info">
-    
-    <input type="hidden" id="product-id" value="UG-BLUSA-ROSA-1">
-    
-    <h1 class="product-title" id="product-name">Blusa de Gasa Rosa Bebé</h1>
-    <p class="product-price" id="product-price">39990</p> <div class="selector-group">
-        <label for="size-select">Talla:</label>
-        <select id="size-select" class="custom-select">
-            <option value="">Selecciona Talla</option>
-            <option value="S">S - Small</option>
-            <option value="M">M - Medium</option>
-            <option value="L">L - Large</option>
-        </select>
-    </div>
-
-    <div class="purchase-actions">
-        <input type="number" value="1" min="1" class="qty-input" id="qty-input">
-        
-        <button class="add-to-cart-btn" onclick="handleAddToCart()">
-            Añadir al Carrito ❤️
-        </button>
-    </div>
-</div>
-
+<body>  
     <header class="main-header">
         <div class="logo">
             <a href="urban.html"> 
@@ -66,38 +42,32 @@
             </div>
 
             <div class="product-info">
-                
-                <h1 class...="product-title" id="product-name">Blusa de Gasa Rosa Bebé</h1>
-                <p class...="product-price" id="product-price-value">$39.990 CLP</p>
-                <p class="stock-display low-stock">¡Solo quedan 8 unidades!</p> 
+    
+    <input type="hidden" id="product-id" value="UG-BLUSA-ROSA-1">
+    
+    <p class="product-price" id="product-price" data-price="39990">$39.990 CLP</p>
+    
+    <h1 class="product-title" id="product-name">Blusa de Gasa Rosa Bebé</h1>
 
-<hr class="info-separator">
-                    <div class="selector-group">
-                        <label>Color:</label>
-                        <div class="color-options">
-                            <span class="color-swatch active" style="background-color: pink;" title="Rosa Bebé"></span>
-                            <span class="color-swatch" style="background-color: #98fb98;" title="Verde Menta"></span>
-                        </div>
-                    </div>
-                    
-                    <div class="selector-group">
-                        <label for="size-select">Talla:</label>
-                        <select id="size-select" class="custom-select">
-                            <option value="">Selecciona Talla</option>
-                            <option value="S">S - Small</option>
-                            <option value="M">M - Medium</option>
-                            <option value="L">L - Large</option>
-                        </select>
-                        <a href="#" class="size-guide-link">Guía de Tallas</a>
-                    </div>
+    <div class="selector-group">
+        <label for="size-select">Talla:</label>
+        <select id="size-select" class="custom-select">
+            <option value="">Selecciona Talla</option>
+            <option value="S">S - Small</option>
+            <option value="M">M - Medium</option>
+            <option value="L">L - Large</option>
+        </select>
+    </div>
 
-                    <div class="purchase-actions">
-                        <input type="number" value="1" min="1" class="qty-input">
-                        <button class="add-to-cart-btn">
-                            Añadir al Carrito ❤️
-                        </button>
-                    </div>
-                </div>
+    <div class="purchase-actions">
+        <input type="number" value="1" min="1" class="qty-input" id="qty-input">
+        
+        <button class="add-to-cart-btn" onclick="handleAddToCart()">
+            Añadir al Carrito ❤️
+        </button>
+    </div>
+
+    </div>
 
                 <hr class="info-separator">
 
@@ -165,6 +135,7 @@
 </body>
 
 </html>
+
 
 
 
