@@ -72,3 +72,73 @@ function addToCart(product) {
  * para que el contador esté siempre actualizado.
  */
 document.addEventListener('DOMContentLoaded', updateCartCount);
+
+/* --- ESTILOS PARA FORMULARIO "AVÍSAME" (AGOTADO) --- */
+
+/* Estilo para el texto de Agotado */
+.stock-display.sold-out {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-top: -15px;
+    margin-bottom: 20px;
+    color: #e63946; /* Un rojo de alerta */
+}
+
+/* Oculta etiquetas visualmente pero las deja para accesibilidad */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.notify-me-form {
+    background-color: var(--color-fondo); /* Fondo pastel suave */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px dashed var(--color-acento-rosa);
+}
+
+.notify-me-form h4 {
+    margin-top: 0;
+    color: var(--color-acento-rosa);
+}
+.notify-me-form p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.notify-me-form form {
+    display: flex;
+    gap: 10px;
+}
+
+.notify-me-form input[type="email"] {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid var(--color-gris-claro);
+    border-radius: 5px;
+}
+.notify-me-form input[type="email"]:focus {
+    border-color: var(--color-acento-menta);
+    outline: none;
+}
+
+.notify-submit-btn {
+    padding: 10px 20px;
+    background-color: var(--color-acento-menta);
+    color: var(--color-texto);
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.notify-submit-btn:hover {
+    background-color: #92d989;
+}
