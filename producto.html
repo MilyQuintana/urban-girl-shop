@@ -96,45 +96,45 @@
             <a href="#">Política de Devolución</a>
         </div>
     </footer>
-<footer>...</footer>
-
-    <script src="cart.js"></script>
+<script src="cart.js"></script>
 
     <script>
         function handleAddToCart() {
-            // 1. Obtener los valores seleccionados
+            // 1. Obtener elementos
             const productId = document.getElementById('product-id').value;
             const productName = document.getElementById('product-name').textContent;
-            const productPrice = parseInt(document.getElementById('product-price').textContent);
+            
+            // Leemos el data-price, es más seguro que parseInt()
+            const productPrice = document.getElementById('product-price').dataset.price; 
+            
             const sizeSelect = document.getElementById('size-select');
             const quantityInput = document.getElementById('qty-input');
             
-            // 2. Validar que se haya seleccionado una talla
-            if (!sizeSelect.value) {
+            // 2. Validación
+            if (!sizeSelect.value) { // Comprueba si la talla está vacía
                 alert('¡Por favor, selecciona una talla antes de añadir!');
-                sizeSelect.focus(); // Pone el foco en el selector de talla
-                return; // Detiene la función
+                sizeSelect.focus();
+                return; 
             }
             
-            // 3. Crear el objeto del producto
+            // 3. Crear el objeto
             const productToAdd = {
                 id: productId,
                 name: productName,
-                price: productPrice,
+                price: parseInt(productPrice), // Convertimos el precio a número
                 size: sizeSelect.value,
                 quantity: parseInt(quantityInput.value)
-                // (Aquí podrías añadir la imagen también si quieres)
             };
             
             // 4. Llamar a la función principal de cart.js
             addToCart(productToAdd);
         }
     </script>
-</body>
-</html>
+
 </body>
 
 </html>
+
 
 
 
