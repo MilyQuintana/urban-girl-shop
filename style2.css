@@ -373,4 +373,23 @@
     .thumbnails {
         justify-content: center; /* Centra las miniaturas en móvil */
     }
+
+}
+/* --- ESTILOS PARA MOSTRAR STOCK (en styles.css) --- */
+
+.stock-display {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: -15px; /* Pone el stock más cerca del precio */
+    margin-bottom: 20px;
+}
+
+/* Estilo para stock normal (opcional) */
+.stock-display.in-stock {
+    color: var(--color-acento-menta); /* Verde menta */
+}
+
+/* Estilo para stock bajo (como en el HTML de ejemplo) */
+.stock-display.low-stock {
+    color: var(--color-acento-rosa); /* Rosa de alerta */
 }
