@@ -7,7 +7,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style2.css">
 </head>
-<body>
+<body>   
+    <div class="product-info">
+    
+    <input type="hidden" id="product-id" value="UG-BLUSA-ROSA-1">
+    
+    <h1 class="product-title" id="product-name">Blusa de Gasa Rosa Bebé</h1>
+    <p class="product-price" id="product-price">39990</p> <div class="selector-group">
+        <label for="size-select">Talla:</label>
+        <select id="size-select" class="custom-select">
+            <option value="">Selecciona Talla</option>
+            <option value="S">S - Small</option>
+            <option value="M">M - Medium</option>
+            <option value="L">L - Large</option>
+        </select>
+    </div>
+
+    <div class="purchase-actions">
+        <input type="number" value="1" min="1" class="qty-input" id="qty-input">
+        
+        <button class="add-to-cart-btn" onclick="handleAddToCart()">
+            Añadir al Carrito ❤️
+        </button>
+    </div>
+</div>
 
     <header class="main-header">
         <div class="logo">
@@ -103,9 +126,45 @@
             <a href="#">Política de Devolución</a>
         </div>
     </footer>
+<footer>...</footer>
 
+    <script src="cart.js"></script>
+
+    <script>
+        function handleAddToCart() {
+            // 1. Obtener los valores seleccionados
+            const productId = document.getElementById('product-id').value;
+            const productName = document.getElementById('product-name').textContent;
+            const productPrice = parseInt(document.getElementById('product-price').textContent);
+            const sizeSelect = document.getElementById('size-select');
+            const quantityInput = document.getElementById('qty-input');
+            
+            // 2. Validar que se haya seleccionado una talla
+            if (!sizeSelect.value) {
+                alert('¡Por favor, selecciona una talla antes de añadir!');
+                sizeSelect.focus(); // Pone el foco en el selector de talla
+                return; // Detiene la función
+            }
+            
+            // 3. Crear el objeto del producto
+            const productToAdd = {
+                id: productId,
+                name: productName,
+                price: productPrice,
+                size: sizeSelect.value,
+                quantity: parseInt(quantityInput.value)
+                // (Aquí podrías añadir la imagen también si quieres)
+            };
+            
+            // 4. Llamar a la función principal de cart.js
+            addToCart(productToAdd);
+        }
+    </script>
+</body>
+</html>
 </body>
 
 </html>
+
 
 
