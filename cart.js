@@ -1,66 +1,74 @@
 // =========================================================
-// ESTRUCTURA DEL CARRITO CON LOCALSTORAGE (cart.js)
+// ARCHIVO: cart.js (Lógica principal del carrito)
 // =========================================================
 
-// CLAVE de localStorage para guardar los productos
-const STORAGE_KEY = 'urbanGirlCart'; 
+const STORAGE_KEY = 'urbanGirlCart'; // Clave para guardar en localStorage
 
-// ---------------------------------------------------------
-// A. FUNCIONES DE LECTURA Y ESCRITURA
-// ---------------------------------------------------------
-
-// 1. Obtiene el carrito del almacenamiento local
+/**
+ * 1. OBTIENE EL CARRITO
+ * Lee el carrito desde localStorage. Si no existe, devuelve un array vacío.
+ */
 function getCart() {
-    // Intenta obtener los datos, si no existen, devuelve un array vacío
     const cartData = localStorage.getItem(STORAGE_KEY);
     return cartData ? JSON.parse(cartData) : [];
 }
 
-// 2. Guarda el carrito en el almacenamiento local
+/**
+ * 2. GUARDA EL CARRITO
+ * Convierte el array del carrito a JSON y lo guarda en localStorage.
+ */
 function saveCart(cart) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
 }
 
-// ---------------------------------------------------------
-// B. FUNCIÓN PRINCIPAL DE AÑADIR PRODUCTO
-// ---------------------------------------------------------
-
-function addToCart(product) {
-    let cart = getCart(); // Obtiene la lista actual
+/**
+ * 3. ACTUALIZA EL CONTADOR DEL ENCABEZADO
+ * Esta es la función que refleja el total en la barra de inicio.
+ */
+function updateCartCount() {
+    const cart = getCart();
+    // Suma la 'quantity' de todos los ítems en el carrito
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
     
-    // Busca si el producto (por ID y Talla) ya existe en el carrito
+    // Busca el enlace del carrito en el encabezado
+    const cartLink = document.querySelector('.cart-link'); // Usaremos esta clase
+    
+    if (cartLink) {
+        // Actualiza el texto para mostrar el número
+        cartLink.textContent = `🛍️ Carrito (${totalItems})`;
+    }
+}
+
+/**
+ * 4. AÑADE AL CARRITO (La función del botón)
+ * Esta es la función que llamará el botón de 'producto.html'.
+ */
+function addToCart(product) {
+    let cart = getCart();
+    
+    // Busca si el producto (por ID y Talla) ya existe
     const existingItemIndex = cart.findIndex(item => 
         item.id === product.id && item.size === product.size
     );
 
     if (existingItemIndex > -1) {
-        // Si existe, solo aumenta la cantidad
+        // Si existe, solo suma la cantidad
         cart[existingItemIndex].quantity += product.quantity;
     } else {
-        // Si es nuevo, lo añade
+        // Si es nuevo, lo añade al array
         cart.push(product);
     }
 
     saveCart(cart); // Guarda el carrito actualizado
     updateCartCount(); // Actualiza el contador del encabezado
-    alert(`🛒 ¡${product.quantity}x ${product.name} (Talla ${product.size}) añadido al carrito!`);
-}
-
-// ---------------------------------------------------------
-// C. FUNCIÓN PARA EL CONTADOR DEL ENCABEZADO
-// ---------------------------------------------------------
-
-function updateCartCount() {
-    const cart = getCart();
-    // Suma la cantidad de todos los productos en el carrito
-    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
     
-    const cartLink = document.querySelector('.cart-link');
-    if (cartLink) {
-        // Actualiza el texto del enlace 🛍️ Carrito (X)
-        cartLink.textContent = `🛍️ Carrito (${totalItems})`; 
-    }
+    // Alerta al usuario
+    alert(`¡${product.quantity}x ${product.name} (Talla ${product.size}) añadido al carrito!`);
 }
 
-// Inicializa el contador al cargar la página
+/**
+ * 5. INICIALIZADOR
+ * Llama a updateCartCount() cada vez que se carga una página 
+ * para que el contador esté siempre actualizado.
+ */
 document.addEventListener('DOMContentLoaded', updateCartCount);
